@@ -1,0 +1,22 @@
+.advanced-simulation {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.advanced-simulation h1 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.advanced-simulation p {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .advanced-simulation {
+    padding: 20px;
+  }
+}
