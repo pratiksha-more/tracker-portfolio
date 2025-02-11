@@ -15,7 +15,7 @@ function App() {
             <Route path="/basic-tracker" element={<BasicTracker />} />
             <Route path="/advanced-simulation" element={<AdvancedSimulation />} />
             <Route path="/market-orders" element={<MarketOrders />} />
-            <Route path="/" element={<BasicTracker />} /> {/* Default route */}
+            <Route path="/" element={<BasicTracker />} /> 
           </Routes>
         </div>
       </div>
