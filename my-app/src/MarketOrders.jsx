@@ -19,30 +19,13 @@ function MarketOrders() {
   const [quantity, setQuantity] = useState('');
   const [limitPrice, setLimitPrice] = useState('');
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     refreshPrices();
-  //     processOrders();
-  //   }, 5000);
-  //   return () => clearInterval(interval);
-  // }, [orders.length, stocks.length]);
-
-  // const refreshPrices = () => {
-  //   const updatedStocks = stocks.map((stock) => {
-  //     const changePercent = Math.random() * 10 - 5;
-  //     const newPrice = +(stock.price * (1 + changePercent / 100)).toFixed(2);
-  //     return { ...stock, price: newPrice };
-  //   });
-  //   setStocks(updatedStocks);
-  // };
-
   useEffect(() => {
     const interval = setInterval(() => {
       refreshPrices();
       processOrders();
     }, 5000);
     return () => clearInterval(interval);
-  }, [orders.length, stocks.length, processOrders, refreshPrices]);
+  }, [orders.length, stocks.length]);
 
   const refreshPrices = () => {
     const updatedStocks = stocks.map((stock) => {
