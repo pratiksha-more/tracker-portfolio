@@ -12,12 +12,29 @@ function MarketOrders() {
   const [stocks, setStocks] = useState(initialStocks);
   const [orders, setOrders] = useState([]);
   const [portfolio, setPortfolio] = useState([]);
-  const [cash, setCash] = useState(10000);
+  const [cash, setCash] = useState(10000); // line number 28
 
   const [selectedStockId, setSelectedStockId] = useState('');
   const [orderType, setOrderType] = useState('market');
   const [quantity, setQuantity] = useState('');
   const [limitPrice, setLimitPrice] = useState('');
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     refreshPrices();
+  //     processOrders();
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, [orders.length, stocks.length]);
+
+  // const refreshPrices = () => {
+  //   const updatedStocks = stocks.map((stock) => {
+  //     const changePercent = Math.random() * 10 - 5;
+  //     const newPrice = +(stock.price * (1 + changePercent / 100)).toFixed(2);
+  //     return { ...stock, price: newPrice };
+  //   });
+  //   setStocks(updatedStocks);
+  // };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,7 +42,7 @@ function MarketOrders() {
       processOrders();
     }, 5000);
     return () => clearInterval(interval);
-  }, [orders, stocks]);
+  }, [orders.length, stocks.length, processOrders, refreshPrices]);
 
   const refreshPrices = () => {
     const updatedStocks = stocks.map((stock) => {
@@ -79,7 +96,7 @@ function MarketOrders() {
             p.id === order.stockId
               ? { ...p, quantity: newQuantity, avgCost: newAvgCost }
               : p
-          )
+          )                   
         );
       } else {
         const stock = stocks.find((s) => s.id === order.stockId);
@@ -229,6 +246,3 @@ function MarketOrders() {
 ); }
 
 export default MarketOrders;
-
-
-    
