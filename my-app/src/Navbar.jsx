@@ -13,7 +13,7 @@ function Navbar(){
         <div className="container">
             <nav className="navbar">
                 <div className="logo">
-                    <img src="/tpp.png" alt="logo"/>
+                    <img src="/TreadPro.png" alt="logo"/>
                 </div>
                 <div className={`links ${isMenuOpen ? 'active' : ''}`}>
                     <ul>
