@@ -1,16 +1,5 @@
-// import './style/AdvancedSimulator.css';
 
-// function AdvancedSimulation() {
-//   return (
-//     <div className="advanced-simulation">
-
-//     </div>
-//   );
-// }
-
-// export default AdvancedSimulation;
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./style/AdvancedSimulator.css";
 
 function AdvancedSimulation() {
@@ -112,6 +101,13 @@ function AdvancedSimulation() {
     });
     setStocks(updatedStocks);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      refreshPrices();
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [stocks]);
 
   const portfolioValue =
     cash +
